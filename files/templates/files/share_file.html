@@ -1,0 +1,7 @@
+<h2>Share File: </h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="usernames">Enter usernames (comma-separated):</label>
+    <input type="text" name="usernames" id="usernames" required>
+    <button type="submit">Share</button>
+</form>

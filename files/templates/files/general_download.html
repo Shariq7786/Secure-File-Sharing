@@ -1,0 +1,19 @@
+<h2>Your Files</h2>
+<ul>
+{% for file in user_files %}
+    <li>
+        {{ file.file_name }}
+        <a href="{% url 'file_download' file.id %}">Download</a>
+    </li>
+{% endfor %}
+</ul>
+
+<h2>Files Shared With You</h2>
+<ul>
+{% for file in shared_files %}
+    <li>
+        {{ file.file_name }}
+        <a href="{% url 'file_download' file.id %}">Download</a>
+    </li>
+{% endfor %}
+</ul>

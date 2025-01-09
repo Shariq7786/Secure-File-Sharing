@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* This ensures the content is centered vertically */
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: #f0f0f0; /* Light gray background color */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center; /* Center form contents */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        form button {
+            margin-top: 10px;
+            text-transform: uppercase; /* Capitalize the text */
+            background-color: #008CBA; /* Blue background color for the button */
+            color: #fff; /* White text color */
+            padding: 10px 20px; /* Add padding for better button appearance */
+            border: none;
+            border-radius: 5px; /* Add border radius for rounded corners */
+        }
+
+        #passwordToggle {
+            cursor: pointer;
+            color: #008CBA;
+            text-decoration: underline;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label>Username: <input type="text" name="username"></label><br>
+        <label>Password: <input type="password" name="password" id="passwordInput"></label>
+        <span id="passwordToggle" onclick="togglePassword()">View Password</span><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById('passwordInput');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>
